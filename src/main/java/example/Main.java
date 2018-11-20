@@ -16,8 +16,10 @@ public class Main {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE, JsonTypeInfo.As.PROPERTY);
 
+        // look at each JSON file - they both start with a "version" field that declars the type/version for dispatch
         Arrays.asList("model1.json", "model2.json").forEach(fileName -> {
             try {
+                // Jackson, due to annotations and the "version" field creates an object of the correct type
                 ExampleModelBase base = mapper.readValue(readJson(fileName), ExampleModelBase.class);
                 if ( base instanceof ExampleModelVersion1 ) {
                     handleVersion1(fileName, (ExampleModelVersion1)base);

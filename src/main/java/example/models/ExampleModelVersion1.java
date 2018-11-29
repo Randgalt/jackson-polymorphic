@@ -1,5 +1,8 @@
 package example.models;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import java.math.BigDecimal;
 
 public class ExampleModelVersion1 extends ExampleModelBase {

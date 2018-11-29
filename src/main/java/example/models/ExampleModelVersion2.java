@@ -1,5 +1,7 @@
 package example.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 
 public class ExampleModelVersion2 extends ExampleModelBase {
@@ -7,16 +9,19 @@ public class ExampleModelVersion2 extends ExampleModelBase {
     private double d;
     private BigDecimal bd;
     private long l;
+    @JsonProperty("a_really_long_name")
+    private long aReallyLongName;
 
     public ExampleModelVersion2() {
-        this("", 0.0, BigDecimal.ZERO, 0L);
+        this("", 0.0, BigDecimal.ZERO, 0L, 0);
     }
 
-    public ExampleModelVersion2(String str, double d, BigDecimal bd, long l) {
+    public ExampleModelVersion2(String str, double d, BigDecimal bd, long l, long aReallyLongName) {
         this.str = str;
         this.d = d;
         this.bd = bd;
         this.l = l;
+        this.aReallyLongName = aReallyLongName;
     }
 
     public String getStr() {
@@ -49,5 +54,13 @@ public class ExampleModelVersion2 extends ExampleModelBase {
 
     public void setL(long l) {
         this.l = l;
+    }
+
+    public long getAReallyLongName() {
+        return aReallyLongName;
+    }
+
+    public void setAReallyLongName(long aReallyLongName) {
+        this.aReallyLongName = aReallyLongName;
     }
 }
